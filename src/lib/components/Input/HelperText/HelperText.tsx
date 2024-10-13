@@ -17,9 +17,17 @@ export const HelperText = (props: React.PropsWithChildren<HelperTextProps>) => {
   const IconComponent = ((status?: string) => {
     switch (status) {
       case "error":
-        return <Icon name={"Notice"} size={18} color={iconColor ?? "var(--border-border-error, #DE4743)"} />;
+        return (
+          <Icon
+            name={"Search"}
+            size={18}
+            color={iconColor ?? "var(--border-border-error, #DE4743)"}
+          />
+        );
       case "success":
-        return <Icon name={"Notice"} size={18} color={iconColor ?? "var(--text-text-brand, #527AFF)"} />;
+        return (
+          <Icon name={"Search"} size={18} color={iconColor ?? "var(--text-text-brand, #527AFF)"} />
+        );
       default:
         return null;
     }
