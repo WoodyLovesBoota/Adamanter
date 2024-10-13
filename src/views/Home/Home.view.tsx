@@ -47,14 +47,25 @@ const HomeView = () => {
             alt={"players_bg"}
             width={1042}
             height={140}
-            style={{ width: "40%", height: "auto" }}
+            style={{
+              width: "40%",
+              height: "auto",
+              position: "absolute",
+              top: "160px",
+              zIndex: 17,
+            }}
           />
           <Image
             src={"/static/images/Players.png"}
             alt={"players"}
             width={2560}
             height={1150}
-            style={{ width: "100vw", height: "auto", marginTop: "auto" }}
+            style={{
+              width: "100vw",
+              height: "auto",
+              marginTop: "auto",
+              zIndex: 18,
+            }}
           />
           <Image
             src={"/static/images/Prove.png"}
