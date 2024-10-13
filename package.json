@@ -1,5 +1,5 @@
 {
-  "name": "Adamanter",
+  "name": "project_sample",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -30,6 +30,7 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "react-hook-form": "^7.51.2",
+    "react-lottie-player": "^2.1.0",
     "react-markdown": "^9.0.1",
     "react-string-replace": "^1.1.1",
     "react-syntax-highlighter": "^15.5.0",

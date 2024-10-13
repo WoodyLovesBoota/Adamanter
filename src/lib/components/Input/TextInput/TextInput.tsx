@@ -7,9 +7,7 @@ import { Icon } from "@/lib/common/components/Icon/Icon";
 import { COMMON_FORM_TYPE } from "@/constants/form.constant";
 const cx = cn.bind(styles);
 
-export const TextInput = (
-  props: React.PropsWithChildren<Partial<TextInputProps>>
-) => {
+export const TextInput = (props: React.PropsWithChildren<Partial<TextInputProps>>) => {
   const {
     handleBlur,
     handleFocus,
@@ -24,7 +22,7 @@ export const TextInput = (
     _input,
     errorMessage,
     themeType,
-    size = "small",
+    size = "medium",
   } = useContext(TextInputContext);
 
   const { iconName, iconColor, iconSize, maxLength } = props;
@@ -69,11 +67,7 @@ export const TextInput = (
               onClick={props.togglePassword}
               aria-label="show password"
             >
-              <Icon
-                name={iconName ? iconName : "Plus"}
-                color={iconColor}
-                size={iconSize}
-              />
+              <Icon name={iconName ? iconName : "Plus"} color={iconColor} size={iconSize} />
             </button>
           )}
         </div>

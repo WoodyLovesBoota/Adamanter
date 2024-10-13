@@ -1,19 +1,14 @@
 .Wrapper {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  // background: linear-gradient(to bottom right, #c0bbeb, #6bb6fc, #f2a5b1);
+  // background: linear-gradient(to bottom right, #c0bbeb, #6bb6fc, #92f8c0);
   background: linear-gradient(to right, #a099e3, #86b5e1),
-    linear-gradient(to bottom, transparent, #f892a3);
+    linear-gradient(to bottom, transparent, #92f8c0);
   background-blend-mode: overlay;
 }
 
 .Main {
-  width: 1200px;
-
-  @media screen and (max-width: 1200px) {
-    width: 100%;
-  }
 }

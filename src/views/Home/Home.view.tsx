@@ -5,11 +5,13 @@ import styles from "./Home.view.module.scss";
 import { getRandomSample } from "@/utils/string.utils";
 import { useEffect, useState } from "react";
 import { usePopup } from "@/components/hooks/common/usePopup";
+import { useTranslations } from "next-intl";
 
 const cx = cn.bind(styles);
 
 const HomeView = () => {
   const { centerPopup } = usePopup();
+  const t = useTranslations("Main");
 
   const [random, setRandom] = useState<number>(getRandomSample());
 

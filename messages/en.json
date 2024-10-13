@@ -1,1 +1,15 @@
-{ "Main": { "title": "HelloWorld" } }
+{
+  "Main": {
+    "title": "HelloWorld",
+    "login title": "Sign in",
+    "id placeholder": "ID",
+    "password placeholder": "Password",
+    "id require message": "ID is required",
+    "id max message": "ID must be max 20 letters",
+    "id min message": "ID must be min 3 letters",
+    "password require message": "password is required",
+    "password max message": "password must be max 20 letters",
+    "password min message": "password must be min 3 letters",
+    "login button": "Sign in"
+  }
+}

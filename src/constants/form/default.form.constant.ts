@@ -19,11 +19,7 @@ export const ID = (() => {
     .type(COMMON_FORM_TYPE.ID)
     .key(DEFAULT_FORM_KEYS.ID)
     .validation(
-      yup
-        .string()
-        .required("please enter between 8 and 20 characters")
-        .max(8, "최대 9")
-        .min(3, "최소 3")
+      yup.string().required("id require message").max(20, "id max message").min(3, "id min message")
     )
     .build();
 })();
@@ -36,8 +32,9 @@ export const PASSWORD = (() => {
     .validation(
       yup
         .string()
-        .required("please enter between 8 and 20 characters")
-        .max(8, "최대 9")
+        .required("password require message")
+        .max(20, "password max message")
+        .min(3, "password min message")
     )
     .build();
 })();
