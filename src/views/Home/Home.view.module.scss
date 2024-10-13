@@ -1,0 +1,50 @@
+.Wrapper {
+}
+
+.Header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    z-index: 10;
+
+    padding-top: 160px;
+  }
+
+  .HeaderGradient {
+    position: absolute;
+    width: 100vw;
+    height: 22%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(12, 22, 25, 0) 0%, #0c1619 61.5%);
+    z-index: 20;
+  }
+
+  .HeaderButton {
+    position: absolute;
+    bottom: 80px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 21;
+
+    .HeaderButtonText {
+      color: var(--White, #fff);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 28px; /* 140% */
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+  }
+}
