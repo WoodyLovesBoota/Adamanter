@@ -1,1 +1,2 @@
-# Adamanter
+ pnpm dev
+

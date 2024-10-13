@@ -1,0 +1,89 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.PopupWrapper {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 64px;
+  overflow: auto;
+
+  .PopupContainer {
+    border-radius: 24px;
+    background: #fff;
+    width: 640px;
+    min-height: 480px;
+    padding: 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow-x: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+    &.closing {
+      animation: forwards fadeOut 0.3s ease-in-out;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .ContentSection {
+    display: flex;
+    flex-direction: column;
+
+    .Title {
+      color: #222;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    .Subtitle {
+      color: #82879b;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 26px;
+    }
+
+    .Description {
+      color: #82879b;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 22px;
+    }
+  }
+
+  .ButtonSection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+  }
+}

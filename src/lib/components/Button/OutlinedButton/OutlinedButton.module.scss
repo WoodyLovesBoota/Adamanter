@@ -1,0 +1,44 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  gap: 12px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  cursor: pointer;
+  border-radius: 4px;
+  flex: 1;
+  &.small {
+    font-size: 14px;
+    height: 40px;
+  }
+  &.xsmall {
+    font-size: 14px;
+    height: 32px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.OutlinedButton {
+  border-radius: var(--radius-radius-minimal, 4px);
+  border: 1px solid var(--surface-surface-primary, #527aff);
+  background-color: white;
+  color: var(--text-text-brand, #527aff) !important;
+  &:disabled {
+    color: var(--text-text-tertiary, #9d9d9d);
+    border: 1px solid var(--border-border-secondary, #d9d9d9);
+    background: var(--surface-surface-primary, #f9f9f9);
+  }
+  &:hover {
+    background: var(--color-blue-50, #ebefff);
+  }
+  &:active {
+    background: var(--color-blue-50, #ebefff);
+  }
+}
