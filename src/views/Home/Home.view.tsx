@@ -87,6 +87,20 @@ const HomeView = () => {
           </div>
         </div>
       </header>
+      <main className={cx("Main")}>
+        <section className={cx("InfoHeader")}>
+          <div className={cx("InfoHeaderTitle")}>
+            <p className={cx("InfoHeaderTitleMain")}>OUR OWN WAY</p>
+            <p className={cx("InfoHeaderTitleSub")}>
+              Forged through unbreakable bonds and driven by our unique vision, we carve our own
+              path.
+              <br />
+              Together, players and fans grow stronger, shaping the future of esports in our own
+              way.
+            </p>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

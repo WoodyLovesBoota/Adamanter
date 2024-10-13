@@ -35,7 +35,10 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.45px;
-    text-transform: uppercase;
+
+    &.current {
+      color: var(--Main, #01ccff);
+    }
   }
 
   .Logo {

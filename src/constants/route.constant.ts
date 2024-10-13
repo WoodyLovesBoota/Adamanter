@@ -1,5 +1,8 @@
 export const ROUTES = {
   INDEX: "/",
-  DETAIL: "/login",
-  TRENDING: "/trending",
+  ABOUT: "/about",
+  TEAM: "/team",
+  SCHEDULE: "/schedule",
+  MEMORIAL: "/memorial",
+  SHOP: "/shop",
 };
