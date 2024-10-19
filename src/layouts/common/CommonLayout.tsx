@@ -16,40 +16,6 @@ interface ICommonLayoutProps {
 const CommonLayout = (props: React.PropsWithChildren<ICommonLayoutProps>) => {
   const { children, header, footer, type } = props;
   const pathname = usePathname();
-  const router = useRouter();
-
-  const parsePath = (path: string) => {
-    const segments = path.split("/");
-    const localeSegment = segments[1];
-    return localeSegment;
-  };
-
-  const changeLanguage = (newLocale: string) => {
-    const currentUrl = new URL(window.location.href);
-    const path = currentUrl.pathname;
-    const searchParams = currentUrl.search;
-
-    const currentPath = path;
-    const currentLocale = parsePath(currentPath);
-    let newPath;
-
-    if (
-      currentPath === `/${currentLocale}` ||
-      currentPath === `/${currentLocale}/`
-    ) {
-      // Root path with locale
-      newPath =
-        currentPath === "/"
-          ? `/${newLocale}`
-          : currentPath.replace(`/${currentLocale}`, `/${newLocale}`);
-    } else {
-      // Other paths
-      newPath = currentPath.replace(`/${currentLocale}/`, `/${newLocale}/`);
-    }
-    newPath += searchParams;
-
-    router.replace(newPath);
-  };
 
   return (
     <div className={cx("Wrapper", pathname.slice(1))}>

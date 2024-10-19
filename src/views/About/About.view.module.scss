@@ -17,6 +17,8 @@
   justify-content: center;
   align-items: center;
 
+  padding: 0 36px;
+
   .Title {
     z-index: 1;
 
@@ -66,12 +68,18 @@
 
     .SectionImage {
       flex: 1;
+      width: 700px;
+      height: 700px;
+      display: flex;
+      align-items: center;
     }
 
     .SectionContent {
-      border: 1px solid #01ccff;
-      padding: 60px;
       flex: 1;
+      position: relative;
+      width: 700px;
+      height: 700px;
+      background-color: transparent;
 
       .SectionTitle {
         color: var(--Main, #01ccff);
@@ -81,6 +89,8 @@
         line-height: 36px; /* 150% */
         letter-spacing: 0.6px;
         margin-bottom: 40px;
+        margin-top: 60px;
+        margin-left: 60px;
       }
 
       .SectionDesc {
@@ -90,11 +100,20 @@
         font-weight: 600;
         line-height: 40px; /* 133.333% */
         letter-spacing: 0.75px;
+        margin-left: 60px;
+        margin-right: 60px;
         &.thick {
           font-size: 48px;
           line-height: 60px; /* 125% */
           letter-spacing: 1.2px;
         }
+      }
+
+      .Background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 15;
       }
     }
   }

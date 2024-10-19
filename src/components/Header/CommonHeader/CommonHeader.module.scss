@@ -35,6 +35,47 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.45px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+
+    &.about {
+      position: relative;
+    }
+
+    .AboutMenu {
+      position: absolute;
+      top: 52px;
+      left: -16px;
+
+      display: flex;
+      flex-direction: column;
+
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(6px);
+      width: 240px;
+
+      .AboutMenuContent {
+        padding: 24px 24px 16px 24px;
+        width: 100%;
+
+        color: var(--Black, #0a0a0a);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.45px;
+
+        &:hover {
+          color: rgba(1, 204, 255, 0.8);
+        }
+        &:active {
+          color: rgba(1, 204, 255, 0.8);
+        }
+      }
+    }
 
     &.current {
       color: var(--Main, #01ccff);

@@ -2,17 +2,16 @@
 
 import cn from "classnames/bind";
 import styles from "./CommonHeader.module.scss";
-import React from "react";
+import React, { useState } from "react";
 import { ROUTES } from "@/constants/route.constant";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { Icon } from "@/lib/common/components/Icon/Icon";
-
+import { AnimatePresence, motion } from "framer-motion";
 const cx = cn.bind(styles);
 
 const GNB_LIST = [
-  { name: "ABOUT", path: ROUTES.ABOUT },
   { name: "TEAM", path: ROUTES.TEAM },
   { name: "SCHEDULE", path: ROUTES.SCHEDULE },
   { name: "MEMORIAL", path: ROUTES.MEMORIAL },
@@ -22,6 +21,12 @@ const GNB_LIST = [
 const CommonHeader = () => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
+
+  const handleAboutOpen = () => {
+    setIsAboutOpen(!isAboutOpen);
+  };
 
   return (
     <nav className={cx("Wrapper")}>
@@ -35,6 +40,30 @@ const CommonHeader = () => {
         />
       </section>
       <section className={cx("Nav")}>
+        <button
+          className={cx("NavButton", "about")}
+          onClick={() => {
+            handleAboutOpen();
+          }}
+        >
+          ABOUT
+          <Icon name={"ChevronDown"} size={20} />
+          <AnimatePresence>
+            {isAboutOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.1 }}
+                key={"about"}
+                className={cx("AboutMenu")}
+              >
+                <p className={cx("AboutMenuContent")}>ABOUT ADAMANTER</p>
+                <p className={cx("AboutMenuContent")}>BRAND GUIDELINE</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
         {GNB_LIST.map((link) => (
           <button
             className={cx("NavButton", { current: pathname === link.path })}

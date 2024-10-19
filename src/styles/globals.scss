@@ -2,6 +2,12 @@
 
 @font-face {
   font-family: "CustomFont";
+  src: url("/fonts/ClashGrotesk-Extralight.woff2") format("woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "CustomFont";
   src: url("/fonts/ClashGrotesk-Light.woff2") format("woff2");
   font-weight: 300;
 }
@@ -15,6 +21,12 @@
 @font-face {
   font-family: "CustomFont";
   src: url("/fonts/ClashGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("/fonts/ClashGrotesk-Semibold.ttf") format("truetype");
   font-weight: 600;
 }
 
@@ -22,4 +34,34 @@
   font-family: "CustomFont";
   src: url("/fonts/ClashGrotesk-Bold.ttf") format("truetype");
   font-weight: 700;
+}
+
+@font-face {
+  font-family: "NanumSquare Neo OTF";
+  src: url("/fonts/NanumSquareNeo-aLt.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "NanumSquare Neo OTF";
+  src: url("/fonts/NanumSquareNeo-bRg.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "NanumSquare Neo OTF";
+  src: url("/fonts/NanumSquareNeo-cBd.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "NanumSquare Neo OTF";
+  src: url("/fonts/NanumSquareNeo-dEb.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "NanumSquare Neo OTF";
+  src: url("/fonts/NanumSquareNeo-eHv.ttf") format("truetype");
+  font-weight: 900;
 }

@@ -9,7 +9,7 @@
   box-sizing: border-box;
   text-decoration: none;
   color: #222;
-  font-family: "CustomFont";
+  font-family: "CustomFont", "NanumSquare Neo OTF";
 }
 
 article,
@@ -24,6 +24,7 @@ menu,
 nav,
 section {
   display: block;
+  box-sizing: border-box;
 }
 
 body {
@@ -71,6 +72,7 @@ input {
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+  display: none;
 }
 ::-webkit-scrollbar-thumb {
   background-color: rgb(191, 191, 191);
