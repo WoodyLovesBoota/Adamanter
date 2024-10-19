@@ -306,7 +306,7 @@ const HomeView = () => {
             <div className={cx("VideoContentMain")}>
               <div className={cx("VideoContentItem")}>
                 <div className={cx("ImageWrapper")}>
-                  <Image src={"/static/images/Video1.png"} alt={"item"} width={700} height={410} />
+                  <Image src={"/static/images/video1.png"} alt={"item"} width={700} height={410} />
                 </div>
                 <div className={cx("VideoContentItemContent")}>
                   <div className={cx("VideoContentItemContentTitle")}>
@@ -323,7 +323,7 @@ const HomeView = () => {
             </div>
             <div className={cx("VideoContentItemWrapper")}>
               <div className={cx("VideoContentItem")}>
-                <Image src={"/static/images/Video2.png"} alt={"item"} width={330} height={186} />
+                <Image src={"/static/images/video2.png"} alt={"item"} width={330} height={186} />
                 <div className={cx("VideoContentItemContent")}>
                   <div className={cx("VideoContentItemContentTitle")}>
                     <Icon name={"Logo"} size={32} />
@@ -337,7 +337,7 @@ const HomeView = () => {
                 </div>
               </div>
               <div className={cx("VideoContentItem")}>
-                <Image src={"/static/images/Video3.png"} alt={"item"} width={330} height={186} />
+                <Image src={"/static/images/video3.png"} alt={"item"} width={330} height={186} />
                 <div className={cx("VideoContentItemContent")}>
                   <div className={cx("VideoContentItemContentTitle")}>
                     <Icon name={"Logo"} size={32} />
@@ -353,7 +353,7 @@ const HomeView = () => {
             </div>
             <div className={cx("VideoContentItemWrapper")}>
               <div className={cx("VideoContentItem")}>
-                <Image src={"/static/images/Video4.png"} alt={"item"} width={330} height={186} />
+                <Image src={"/static/images/video4.png"} alt={"item"} width={330} height={186} />
                 <div className={cx("VideoContentItemContent")}>
                   <div className={cx("VideoContentItemContentTitle")}>
                     <Icon name={"Logo"} size={32} />
@@ -367,7 +367,7 @@ const HomeView = () => {
                 </div>
               </div>
               <div className={cx("VideoContentItem")}>
-                <Image src={"/static/images/Video5.png"} alt={"item"} width={330} height={186} />
+                <Image src={"/static/images/video5.png"} alt={"item"} width={330} height={186} />
                 <div className={cx("VideoContentItemContent")}>
                   <div className={cx("VideoContentItemContentTitle")}>
                     <Icon name={"Logo"} size={32} />
