@@ -26,7 +26,6 @@ export const TextInput = (props: React.PropsWithChildren<Partial<TextInputProps>
   } = useContext(TextInputContext);
 
   const { iconName, iconColor, iconSize, maxLength } = props;
-
   return (
     <React.Fragment>
       <div
@@ -59,7 +58,7 @@ export const TextInput = (props: React.PropsWithChildren<Partial<TextInputProps>
           maxLength={maxLength}
         />
 
-        <div className={cx("ButtonGroup")}>
+        {/* <div className={cx("ButtonGroup")}>
           {props.isButton && (
             <button
               className={cx("Button", "visibleButton")}
@@ -70,7 +69,7 @@ export const TextInput = (props: React.PropsWithChildren<Partial<TextInputProps>
               <Icon name={iconName ? iconName : "Plus"} color={iconColor} size={iconSize} />
             </button>
           )}
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );

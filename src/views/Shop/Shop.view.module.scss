@@ -1,0 +1,571 @@
+.Wrapper {
+  padding-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 1440px;
+  margin-bottom: 80px;
+
+  .HeaderButton {
+    display: flex;
+    height: 48px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex: 1 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px; /* 144.444% */
+    letter-spacing: 0.45px;
+    cursor: pointer;
+
+    &.current {
+      border: 1px solid var(--Main, #01ccff);
+      color: var(--Main, #01ccff);
+    }
+  }
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Popular {
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    padding: 160px 0 160px;
+    gap: 48px;
+
+    .PopularTitle {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .PopularTitleText {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .PopularTitleMain {
+          color: var(--Black, #0a0a0a);
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px; /* 125% */
+          letter-spacing: 1.2px;
+        }
+
+        .PopularTitleSub {
+          color: var(--Black, #0a0a0a);
+          font-family: "NanumSquare Neo OTF";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px; /* 155.556% */
+          letter-spacing: 0.18px;
+        }
+      }
+
+      .PopularButton {
+        display: flex;
+        height: 48px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border-radius: 4px;
+        border: 1px solid var(--Main, #01ccff);
+        cursor: pointer;
+
+        .PopularButtonText {
+          color: var(--Main, #01ccff);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 144.444% */
+          letter-spacing: 0.45px;
+        }
+      }
+    }
+    .PopularContentWrapper {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      .PopularContentItem {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .ImageWrapper {
+          background: var(--Background, #f5f9fa);
+          background: linear-gradient(
+            -60deg,
+            transparent 15px,
+            #f5f9fa 0,
+            #f5f9fa calc(100% - 15px),
+            transparent 15px
+          );
+          position: relative;
+
+          .UpcomingContentItemButton {
+            position: absolute;
+            right: -24px;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+        }
+
+        .PopularContentItemTitle {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .PopularContentItemTitleMain {
+            color: #000;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 28px; /* 155.556% */
+            letter-spacing: 0.45px;
+            font-family: "NanumSquare Neo OTF";
+          }
+
+          .PopularContentItemTitleSub {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px; /* 150% */
+          }
+        }
+      }
+    }
+  }
+
+  .BannerWrapper {
+    width: 1440px;
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .BannerTransparent {
+    display: flex;
+    height: 680px;
+
+    .BannerContainer {
+      position: relative;
+      flex: 1;
+      width: 453px;
+      height: 100%;
+      padding: 80px 60px;
+      display: flex;
+
+      .BannerTitleWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        position: absolute;
+        left: 80px;
+        top: 60px;
+
+        .BannerTitle {
+          color: var(--White, #fff);
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px; /* 125% */
+        }
+
+        .BannerSubTitle {
+          color: var(--White, #fff);
+          font-family: "NanumSquare Neo OTF";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px; /* 155.556% */
+        }
+      }
+
+      .BannerButton {
+        position: absolute;
+        bottom: 80px;
+        right: 60px;
+        border-radius: 4px;
+        background: var(--White, #fff);
+        display: flex;
+        height: 48px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+
+        .BannerButtonText {
+          color: var(--Black, #0a0a0a);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 144.444% */
+          letter-spacing: 0.45px;
+        }
+      }
+    }
+  }
+
+  .BannerBlack {
+    display: flex;
+    height: 680px;
+    width: 947px;
+    overflow: hidden;
+    background: linear-gradient(
+      -60deg,
+      transparent 32px,
+      #1c1c1c 0,
+      #1c1c1c calc(100% - 32px),
+      transparent 32px
+    );
+    .BannerContainer2 {
+      position: relative;
+      flex: 1;
+      padding: 60px 0px 44px 80px;
+      display: flex;
+      flex-direction: column;
+
+      .BannerTitleWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .BannerTitle {
+          color: var(--White, #fff);
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px; /* 125% */
+        }
+
+        .BannerSubTitle {
+          color: var(--White, #fff);
+          font-family: "NanumSquare Neo OTF";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px; /* 155.556% */
+        }
+      }
+
+      .BannerButton {
+        position: absolute;
+        bottom: 60px;
+        right: 80px;
+        border-radius: 4px;
+        background: var(--White, #fff);
+        display: flex;
+        height: 48px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+
+        .BannerButtonText {
+          color: var(--Black, #0a0a0a);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 144.444% */
+          letter-spacing: 0.45px;
+        }
+      }
+    }
+  }
+
+  .Banner {
+    display: flex;
+
+    height: 680px;
+    width: 947px;
+    overflow: hidden;
+    background: linear-gradient(
+      -60deg,
+      transparent 32px,
+      #01ccff 0,
+      #b8f1ff calc(100% - 32px),
+      transparent 32px
+    );
+    background: var(--Sky, linear-gradient(180deg, #01ccff 0%, #b8f1ff 100%));
+    .BannerContainer {
+      position: relative;
+      flex: 1;
+      padding: 60px 60px 80px 80px;
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      height: 680px;
+      width: 947px;
+      background: linear-gradient(
+        -60deg,
+        #fff 32px,
+        transparent 0,
+        transparent calc(100% - 32px),
+        #fff 32px
+      );
+
+      .BannerTitleWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .BannerTitle {
+          color: var(--White, #fff);
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px; /* 125% */
+        }
+
+        .BannerSubTitle {
+          color: var(--White, #fff);
+          font-family: "NanumSquare Neo OTF";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px; /* 155.556% */
+        }
+      }
+
+      .BannerButton {
+        position: absolute;
+        bottom: 60px;
+        right: 80px;
+        border-radius: 4px;
+        background: var(--White, #fff);
+        display: flex;
+        height: 48px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+
+        .BannerButtonText {
+          color: var(--Black, #0a0a0a);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 144.444% */
+          letter-spacing: 0.45px;
+        }
+      }
+    }
+  }
+
+  .Live {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    width: 1440px;
+
+    .Stream {
+      position: relative;
+      .StreamContent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        padding: 60px 80px;
+        display: flex;
+        flex-direction: column;
+
+        .StreamContentTitle {
+          color: var(--White, #fff);
+          text-shadow: 0px 4px 20px #000;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px; /* 125% */
+
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          .RedDot {
+            width: 24px;
+            height: 24px;
+            border-radius: 100px;
+            background: #ff2638;
+
+            box-shadow: 0px 4px 20px #000;
+          }
+        }
+
+        .StreamButton {
+          margin-top: auto;
+          margin-left: auto;
+          border-radius: 4px;
+          background: var(--White, #fff);
+          display: flex;
+          height: 48px;
+          padding: 10px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+          .StreamButtonText {
+            color: var(--Black, #0a0a0a);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 26px; /* 144.444% */
+            letter-spacing: 0.45px;
+          }
+        }
+      }
+    }
+    .LiveContent {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .LiveContentItem1 {
+        position: relative;
+
+        .Content {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          padding: 60px 80px;
+          display: flex;
+          flex-direction: column;
+
+          .StreamContentTitle {
+            color: var(--White, #fff);
+            text-shadow: 0px 4px 20px #000;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 60px; /* 125% */
+          }
+          .StreamButton {
+            margin-top: auto;
+            margin-left: auto;
+            border-radius: 4px;
+            background: var(--White, #fff);
+            display: flex;
+            height: 48px;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            .StreamButtonText {
+              color: var(--Black, #0a0a0a);
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 26px; /* 144.444% */
+              letter-spacing: 0.45px;
+            }
+          }
+        }
+      }
+
+      .LiveContentItem2 {
+        background: linear-gradient(
+          -60deg,
+          transparent 32px,
+          #01ccff 0,
+          #b8f1ff calc(100% - 32px),
+          transparent 32px
+        );
+        background: var(--Sky, linear-gradient(180deg, #01ccff 0%, #b8f1ff 100%));
+
+        .Container {
+          position: relative;
+          flex: 1;
+          padding: 60px 80px;
+          display: flex;
+          overflow: hidden;
+          height: 438px;
+
+          background: linear-gradient(
+            -60deg,
+            #fff 32px,
+            transparent 0,
+            transparent calc(100% - 32px),
+            #fff 32px
+          );
+        }
+
+        img {
+          position: absolute;
+          left: -0;
+          top: 0px;
+        }
+
+        .Content {
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+
+          .StreamContentTitle {
+            color: var(--White, #fff);
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 60px; /* 125% */
+          }
+          .StreamButton {
+            margin-top: auto;
+            margin-left: auto;
+            border-radius: 4px;
+            background: var(--White, #fff);
+            display: flex;
+            height: 48px;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            .StreamButtonText {
+              color: var(--Black, #0a0a0a);
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 26px; /* 144.444% */
+              letter-spacing: 0.45px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

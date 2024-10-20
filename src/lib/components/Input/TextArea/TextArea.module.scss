@@ -1,33 +1,33 @@
 .Wrapper {
   position: relative;
   display: flex;
+  border: 1px solid var(--Main, #01ccff);
+  background: var(--Background, #f5f9fa);
   width: 100%;
-  border: var(--spacing-spacing-none, 1px) solid var(--border-border-secondary, #d9d9d9);
-  background: var(--color-gray-white, #fff);
   flex: 1 1 auto;
-  border-radius: var(--spacing-spacing-sm, 8px);
-  padding: var(--spacing-spacing-m, 16px);
-  gap: var(--spacing-spacing-m, 16px);
-  background: #fff;
-  min-height: 104px;
+  min-height: 80px;
+  padding: 27px 18px 27px 32px;
 
   textarea {
-    flex: 1 1 auto;
     border: none;
-    color: var(--text-text-primary, #262626);
-    /* Body1_Regular_16 */
-    font-size: 16px;
+    color: var(--Black, #0a0a0a);
+    font-family: "NanumSquare Neo OTF";
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 26px; /* 144.444% */
+    letter-spacing: 0.45px;
+    background: transparent;
+    width: 90%;
 
     &::placeholder {
-      color: var(--text-text-tertiary, #9d9d9d);
-      /* Body1_Regular_16 */
-      font-size: 16px;
+      color: rgba(0, 0, 0, 0.5);
+      font-family: "NanumSquare Neo OTF";
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
-      line-height: 24px; /* 150% */
+      line-height: 26px; /* 144.444% */
+      letter-spacing: 0.45px;
     }
 
     &:focus {
@@ -36,7 +36,6 @@
   }
 
   &.focused {
-    border: var(--spacing-spacing-none, 1px) solid var(--text-text-brand, #527aff);
   }
 
   &.warning {

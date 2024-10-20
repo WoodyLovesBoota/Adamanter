@@ -8,7 +8,6 @@ import { HelperText } from "@/lib/components/Input/HelperText/HelperText";
 import { CommonTextInputItemProvider } from "@/lib/contexts/TextInput.context";
 import { COMMON_FORM_TYPE } from "@/constants/form.constant";
 import { TextArea } from "../../TextArea/TextArea";
-import { useTranslations } from "next-intl";
 
 const cx = cn.bind(styles);
 export const PrimaryTextInputSet = (
@@ -42,7 +41,6 @@ export const PrimaryTextInputSet = (
     ...rest
   } = props;
   if (hidden) return null;
-  const t = useTranslations("Main");
   return (
     <CommonTextInputItemProvider
       {...rest}
@@ -65,7 +63,12 @@ export const PrimaryTextInputSet = (
         {props?.label && <Label className={labelClass} />}
         {props?.description && <p className={cx("Description")}>{description}</p>}
         {type === COMMON_FORM_TYPE.TEXTAREA ? (
-          <TextArea readonly={readonly} className={className} maxLength={200} />
+          <TextArea
+            readonly={readonly}
+            className={className}
+            maxLength={10000}
+            value={value ?? value}
+          />
         ) : (
           <TextInput
             type={type}
@@ -85,9 +88,7 @@ export const PrimaryTextInputSet = (
             status={!!errorMessage ? "error" : undefined}
             className={className}
             iconColor={iconColor}
-          >
-            {t(errorMessage)}
-          </HelperText>
+          ></HelperText>
         )}
         {successMessage && (
           <HelperText
@@ -98,6 +99,9 @@ export const PrimaryTextInputSet = (
             {successMessage}
           </HelperText>
         )}
+        <button disabled={!value} className={cx("SendButton")} onClick={props.onClick}>
+          SEND
+        </button>
       </label>
     </CommonTextInputItemProvider>
   );

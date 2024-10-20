@@ -9,6 +9,10 @@ import { Icon } from "@/lib/common/components/Icon/Icon";
 const cx = cn.bind(styles);
 
 const AboutView = () => {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className={cx("Wrapper")}>
       <header className={cx("Header")}>

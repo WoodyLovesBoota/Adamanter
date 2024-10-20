@@ -5,4 +5,5 @@ export const ROUTES = {
   SCHEDULE: "/schedule",
   MEMORIAL: "/memorial",
   SHOP: "/shop",
+  GUIDE: "/guide",
 };

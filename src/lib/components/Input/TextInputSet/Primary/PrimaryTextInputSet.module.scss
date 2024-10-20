@@ -17,3 +17,36 @@
     z-index: 10;
   }
 }
+
+.SendButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  height: 48px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  background: var(--Main, #01ccff);
+  border-radius: 4px;
+  cursor: pointer;
+
+  color: var(--White, #fff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: 0.45px;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  &:disabled {
+    background: rgba(1, 204, 255, 0.25);
+    cursor: not-allowed;
+  }
+}

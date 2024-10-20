@@ -31,6 +31,11 @@ const HomeView = () => {
       },
     });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className={cx("Wrapper")}>
       <header className={cx("Header")}>

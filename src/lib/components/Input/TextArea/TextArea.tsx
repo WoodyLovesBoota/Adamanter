@@ -26,7 +26,7 @@ export const TextArea = (props: React.PropsWithChildren<Partial<TextInputProps>>
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { style, scrollHeight } = event.target;
 
-    const lineHeight = 24;
+    const lineHeight = 26;
 
     const newLines = Math.floor(scrollHeight / lineHeight);
     setHeightState(newLines * lineHeight);
@@ -46,12 +46,12 @@ export const TextArea = (props: React.PropsWithChildren<Partial<TextInputProps>>
         focused: props?.isFocused ?? isFocused,
         error: !!errorMessage,
       })}
-      style={{ height: `${heightState}px` }}
+      style={{ height: `${54 + heightState}px` }}
     >
       <textarea
         onChange={handleChange}
         readOnly={props?.readonly || readOnly}
-        value={props?.value ?? value ? value : undefined}
+        value={value}
         className={cx("TextArea")}
         onFocus={props?.onFocus ?? handleFocus}
         onBlur={props?.onBlur || handleBlur}
@@ -59,7 +59,7 @@ export const TextArea = (props: React.PropsWithChildren<Partial<TextInputProps>>
         id={props?.name || name}
         placeholder={!!placeholder ? placeholder : ""}
         disabled={props?.disabled ?? disabled}
-        maxLength={props?.maxLength ?? maxLength}
+        maxLength={10000}
       />
 
       {!!maxLength && (

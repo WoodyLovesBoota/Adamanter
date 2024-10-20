@@ -58,8 +58,22 @@ const CommonHeader = () => {
                 key={"about"}
                 className={cx("AboutMenu")}
               >
-                <p className={cx("AboutMenuContent")}>ABOUT ADAMANTER</p>
-                <p className={cx("AboutMenuContent")}>BRAND GUIDELINE</p>
+                <p
+                  onClick={() => router.push(ROUTES.ABOUT)}
+                  className={cx("AboutMenuContent", {
+                    current: pathname.includes(ROUTES.ABOUT),
+                  })}
+                >
+                  ABOUT ADAMANTER
+                </p>
+                <p
+                  onClick={() => router.push(ROUTES.GUIDE)}
+                  className={cx("AboutMenuContent", {
+                    current: pathname.includes(ROUTES.GUIDE),
+                  })}
+                >
+                  BRAND GUIDELINES
+                </p>
               </motion.div>
             )}
           </AnimatePresence>

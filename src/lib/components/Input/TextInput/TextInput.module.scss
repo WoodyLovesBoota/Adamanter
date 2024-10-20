@@ -1,10 +1,11 @@
 .Wrapper {
   display: flex;
-  padding: 0 16px;
   align-items: center;
   gap: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border-border-secondary, #d9d9d9);
+  border: 1px solid var(--Main, #01ccff);
+  padding: 16px 18px 16px 32px;
+  background: var(--Background, #f5f9fa);
+
   height: 48px;
 
   &.WithButton {
@@ -12,7 +13,7 @@
   }
 
   &.medium {
-    height: 56px;
+    height: 80px;
   }
 
   &.small {
@@ -43,7 +44,13 @@
     background-color: transparent;
     outline: none;
     &::placeholder {
-      color: var(--text-text-tertiary, #9d9d9d);
+      color: rgba(0, 0, 0, 0.5);
+      font-family: "NanumSquare Neo OTF";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px; /* 144.444% */
+      letter-spacing: 0.45px;
     }
 
     &:disabled {

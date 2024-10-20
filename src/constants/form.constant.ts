@@ -70,6 +70,8 @@ export const COMMON_FORM_TYPE = {
   NUMBER: "number",
   /** 아이디 */
   ID: "id",
+  /** 방명록 */
+  REPLY: "reply",
 } as const;
 
 export const COMMON_FORM_TYPE_DEFAULT_VALUE = {
