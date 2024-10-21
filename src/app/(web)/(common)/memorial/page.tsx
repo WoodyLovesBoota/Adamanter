@@ -27,9 +27,9 @@ const page = async () => {
     }
   };
 
-  const data = await getData();
+  // const data = await getData();
 
-  return <FarewellView data={data[0]["reply"]} />;
+  return <FarewellView />;
 };
 
 export default page;

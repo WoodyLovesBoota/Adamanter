@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import cn from "classnames/bind";
 import styles from "./Farewell.view.module.scss";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { PrimaryTextInputSet } from "@/lib/components/Input/TextInputSet/Primary/PrimaryTextInputSet";
 import { COMMON_FORM_TYPE } from "@/constants/form.constant";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebaseClient";
 import { useRouter } from "next/navigation";
 
@@ -21,7 +21,20 @@ type SearchFormType = {
   reply: string;
 };
 
-const FarewellView = ({ data }: { data: any }) => {
+const FarewellView = () => {
+  const [data, setData] = useState<any>([]);
+  const [count, setCount] = useState<number>(0);
+
+  useEffect(() => {
+    const func = async () => {
+      const docRef = doc(db, "reply", "CS5jKH05MaGPHxpcAeF2");
+      const replys = await getDoc(docRef);
+      console.log(replys);
+      setData(replys.data()?.reply);
+    };
+    func();
+  }, [count]);
+
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -46,7 +59,7 @@ const FarewellView = ({ data }: { data: any }) => {
       console.error("Error updating document: ", error);
     }
     form.reset({});
-    router.refresh();
+    setCount(count + 1);
   };
 
   const getCurrentKSTTime = (): string => {
