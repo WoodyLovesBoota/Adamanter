@@ -29,7 +29,6 @@ const FarewellView = () => {
     const func = async () => {
       const docRef = doc(db, "reply", "CS5jKH05MaGPHxpcAeF2");
       const replys = await getDoc(docRef);
-      console.log(replys);
       setData(replys.data()?.reply);
     };
     func();
