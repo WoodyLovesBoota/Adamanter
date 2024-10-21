@@ -40,7 +40,7 @@ const FarewellView = ({ data }: { data: any }) => {
 
   const updateFirestoreDoc = async (newData: any) => {
     try {
-      const docRef = doc(db, "reply", "N13F84zby3hv4GVs3a8E");
+      const docRef = doc(db, "reply", "CS5jKH05MaGPHxpcAeF2");
       await updateDoc(docRef, newData);
     } catch (error) {
       console.error("Error updating document: ", error);
