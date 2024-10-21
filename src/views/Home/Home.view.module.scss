@@ -1,4 +1,15 @@
 .Wrapper {
+  :global(.swiper-wrapper) {
+    display: flex;
+  }
+
+  .CardList {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 .Header {
@@ -16,15 +27,17 @@
     height: 100%;
 
     z-index: 10;
+
+    position: relative;
   }
 
   .HeaderGradient {
     position: absolute;
     width: 100vw;
-    height: 22%;
+    height: 320px;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(12, 22, 25, 0) 0%, #0c1619 61.5%);
+    background: linear-gradient(180deg, rgba(12, 22, 25, 0) 0%, #0c1619 70.5%);
     z-index: 20;
   }
 
@@ -37,6 +50,14 @@
     gap: 6px;
     z-index: 21;
 
+    .IconWrapper {
+      height: 24px;
+      overflow: hidden;
+      div {
+        z-index: -1;
+      }
+    }
+
     .HeaderButtonText {
       color: var(--White, #fff);
       font-size: 20px;
@@ -44,7 +65,6 @@
       font-weight: 500;
       line-height: 28px; /* 140% */
       letter-spacing: 0.5px;
-      text-transform: uppercase;
     }
   }
 }
@@ -60,6 +80,7 @@
     padding: 40px 0px;
     display: flex;
     padding: 40px 0px;
+    z-index: 20;
 
     justify-content: center;
     align-items: center;
@@ -116,11 +137,12 @@
 
         .UpcomingTitleSub {
           color: var(--Black, #0a0a0a);
-          font-size: 20px;
+          font-family: "NanumSquare Neo OTF";
+          font-size: 18px;
           font-style: normal;
           font-weight: 400;
-          line-height: 28px; /* 140% */
-          letter-spacing: 0.2px;
+          line-height: 28px; /* 155.556% */
+          letter-spacing: 0.18px;
         }
       }
 
@@ -214,14 +236,6 @@
             line-height: 24px; /* 150% */
           }
         }
-        .UpcomingContentItemButton {
-          position: absolute;
-          right: -24px;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
       }
     }
   }
@@ -285,8 +299,24 @@
     }
     .PopularContentWrapper {
       display: flex;
-      align-items: center;
+      // align-items: center;
       gap: 24px;
+      position: relative;
+      .UpcomingContentItemButton {
+        position: absolute;
+        right: -24px;
+        height: 330px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2;
+
+        &.left {
+          right: initial;
+          left: -24px;
+          transform: rotate(180deg);
+        }
+      }
 
       .PopularContentItem {
         flex: 1;
@@ -304,16 +334,6 @@
             transparent 15px
           );
           position: relative;
-
-          .UpcomingContentItemButton {
-            position: absolute;
-            right: -24px;
-            top: 0;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-          }
         }
 
         .PopularContentItemTitle {
@@ -416,6 +436,28 @@
           line-height: 26px; /* 144.444% */
           letter-spacing: 0.45px;
         }
+
+        &:hover {
+          .BannerButtonText {
+            color: rgba(1, 204, 255, 0.8);
+          }
+          svg {
+            path {
+              stroke: rgba(1, 204, 255, 0.8);
+            }
+          }
+        }
+
+        &:active {
+          .BannerButtonText {
+            color: #01ccff;
+          }
+          svg {
+            path {
+              stroke: #01ccff;
+            }
+          }
+        }
       }
     }
   }
@@ -482,6 +524,28 @@
             line-height: 26px; /* 144.444% */
             letter-spacing: 0.45px;
           }
+
+          &:hover {
+            .StreamButtonText {
+              color: rgba(1, 204, 255, 0.8);
+            }
+            svg {
+              path {
+                stroke: rgba(1, 204, 255, 0.8);
+              }
+            }
+          }
+
+          &:active {
+            .StreamButtonText {
+              color: #01ccff;
+            }
+            svg {
+              path {
+                stroke: #01ccff;
+              }
+            }
+          }
         }
       }
     }
@@ -531,6 +595,28 @@
               font-weight: 500;
               line-height: 26px; /* 144.444% */
               letter-spacing: 0.45px;
+            }
+
+            &:hover {
+              .StreamButtonText {
+                color: rgba(1, 204, 255, 0.8);
+              }
+              svg {
+                path {
+                  stroke: rgba(1, 204, 255, 0.8);
+                }
+              }
+            }
+
+            &:active {
+              .StreamButtonText {
+                color: #01ccff;
+              }
+              svg {
+                path {
+                  stroke: #01ccff;
+                }
+              }
             }
           }
         }
@@ -603,6 +689,28 @@
               line-height: 26px; /* 144.444% */
               letter-spacing: 0.45px;
             }
+
+            &:hover {
+              .StreamButtonText {
+                color: rgba(1, 204, 255, 0.8);
+              }
+              svg {
+                path {
+                  stroke: rgba(1, 204, 255, 0.8);
+                }
+              }
+            }
+
+            &:active {
+              .StreamButtonText {
+                color: #01ccff;
+              }
+              svg {
+                path {
+                  stroke: #01ccff;
+                }
+              }
+            }
           }
         }
       }
@@ -664,6 +772,14 @@
           line-height: 26px; /* 144.444% */
           letter-spacing: 0.45px;
           margin-left: 8px;
+        }
+
+        &:hover {
+          background: rgba(255, 51, 51, 0.1);
+        }
+
+        &:active {
+          background: rgba(255, 51, 51, 0.2);
         }
       }
     }
@@ -770,6 +886,27 @@
           font-weight: 400;
           line-height: 28px; /* 140% */
           letter-spacing: 0.2px;
+        }
+      }
+
+      .PopularButton {
+        display: flex;
+        height: 48px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border-radius: 4px;
+        border: 1px solid var(--Main, #01ccff);
+        cursor: pointer;
+
+        .PopularButtonText {
+          color: var(--Main, #01ccff);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 26px; /* 144.444% */
+          letter-spacing: 0.45px;
         }
       }
     }

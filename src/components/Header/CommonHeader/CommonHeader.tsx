@@ -2,7 +2,7 @@
 
 import cn from "classnames/bind";
 import styles from "./CommonHeader.module.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ROUTES } from "@/constants/route.constant";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -13,7 +13,6 @@ const cx = cn.bind(styles);
 
 const GNB_LIST = [
   { name: "TEAM", path: ROUTES.TEAM },
-  { name: "SCHEDULE", path: ROUTES.SCHEDULE },
   { name: "MEMORIAL", path: ROUTES.MEMORIAL },
   { name: "SHOP", path: ROUTES.SHOP },
 ];
@@ -23,13 +22,23 @@ const CommonHeader = () => {
   const pathname = usePathname();
 
   const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
-
+  const [scrollY, setScrollY] = useState<number>(0);
   const handleAboutOpen = () => {
     setIsAboutOpen(!isAboutOpen);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollY(window.scrollY);
+    });
+  }, []);
+
+  useEffect(() => {
+    setIsAboutOpen(false);
+  }, [pathname]);
+
   return (
-    <nav className={cx("Wrapper")}>
+    <nav className={cx("Wrapper", { up: scrollY < 1 })}>
       <section className={cx("Logo")} onClick={() => router.push(ROUTES.INDEX)}>
         <Image
           src={"/static/images/logo.png"}
@@ -80,6 +89,7 @@ const CommonHeader = () => {
         </button>
         {GNB_LIST.map((link) => (
           <button
+            key={link.path}
             className={cx("NavButton", { current: pathname === link.path })}
             onClick={() => router.push(link.path)}
           >

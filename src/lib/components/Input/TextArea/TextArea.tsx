@@ -46,7 +46,7 @@ export const TextArea = (props: React.PropsWithChildren<Partial<TextInputProps>>
         focused: props?.isFocused ?? isFocused,
         error: !!errorMessage,
       })}
-      style={{ height: `${54 + heightState}px` }}
+      style={{ height: value ? `${54 + heightState}px` : "80px" }}
     >
       <textarea
         onChange={handleChange}

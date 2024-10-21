@@ -9,7 +9,7 @@
   padding: 0 60px;
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
 
   position: fixed;
@@ -19,6 +19,11 @@
 
   @media screen and (max-width: 1200px) {
     width: 100%;
+  }
+  transition: background 0.3s ease;
+
+  &.up {
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .Nav {

@@ -13,8 +13,8 @@ const SvgArrowUpright = (props: SVGProps<SVGSVGElement>) => (
     onClick={props.onClick}
     {...props}
   >
-    <path d="M7 4H17V14" stroke="#82879b" strokeWidth={1.5} />
-    <path d="M17 4L4 17" stroke="#82879b" strokeWidth={1.5} />
+    <path d="M7 4H17V14" stroke={props.color || `#82879b`} strokeWidth={1.5} />
+    <path d="M17 4L4 17" stroke={props.color || `#82879b`} strokeWidth={1.5} />
   </svg>
 );
 export default SvgArrowUpright;

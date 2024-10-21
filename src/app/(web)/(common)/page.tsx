@@ -7,8 +7,8 @@ interface MetaDataProps {
 
 export async function generateMetadata({ params }: MetaDataProps) {
   return {
-    title: "Home",
-    description: "Home Screen",
+    title: "ADAMANTER",
+    description: "ADAMANTER",
   };
 }
 

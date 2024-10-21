@@ -3,6 +3,16 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebaseClient";
 import FarewellView from "@/views/Farewell/Farewell.view";
 
+interface MetaDataProps {
+  params: {};
+}
+export async function generateMetadata({ params }: MetaDataProps) {
+  return {
+    title: "MEMORIAL",
+    description: "MEMORIAL",
+  };
+}
+
 const page = async () => {
   const getData = async () => {
     try {

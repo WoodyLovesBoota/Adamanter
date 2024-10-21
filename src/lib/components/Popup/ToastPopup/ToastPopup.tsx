@@ -15,15 +15,9 @@ interface IPopupProps {
 }
 
 const ToastPopup = (props: IPopupProps) => {
-  const { title, iconName, layerClose } = props;
-  const [visible, setVisible] = useState(false);
+  const { title, layerClose } = props;
 
   useEffect(() => {
-    setVisible(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 1000);
-
     setTimeout(() => {
       layerClose?.();
     }, 1500);
@@ -31,12 +25,7 @@ const ToastPopup = (props: IPopupProps) => {
 
   return (
     <div className={cx("Wrapper")}>
-      <div className={cx("PopupContainer", visible ? "visible" : "")}>
-        <div className={cx("IconWrapper")}>
-          {iconName && <Icon name={iconName} color="#fff" size={16} />}
-        </div>
-        {title && <h2>{title}</h2>}
-      </div>
+      <div className={cx("PopupContainer")}>{title && <h2>{title}</h2>}</div>
     </div>
   );
 };

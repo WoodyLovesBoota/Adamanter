@@ -3,6 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  :global(.swiper-wrapper) {
+    display: flex;
+  }
+
+  .CardList {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 .Header {
@@ -29,6 +41,13 @@
     line-height: 26px; /* 144.444% */
     letter-spacing: 0.45px;
     cursor: pointer;
+
+    transition: all 0.15s ease;
+
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      color: rgba(0, 0, 0, 0.5);
+    }
 
     &.current {
       border: 1px solid var(--Main, #01ccff);
@@ -104,6 +123,23 @@
       display: flex;
       align-items: center;
       gap: 24px;
+      position: relative;
+      .UpcomingContentItemButton {
+        position: absolute;
+        right: -24px;
+        top: 0;
+        height: 330px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2;
+
+        &.left {
+          right: initial;
+          left: -24px;
+          transform: rotate(180deg);
+        }
+      }
 
       .PopularContentItem {
         flex: 1;
@@ -194,6 +230,10 @@
           font-style: normal;
           font-weight: 600;
           line-height: 60px; /* 125% */
+
+          &.shadow {
+            text-shadow: 0px 4px 20px #000;
+          }
         }
 
         .BannerSubTitle {
@@ -227,6 +267,27 @@
           font-weight: 500;
           line-height: 26px; /* 144.444% */
           letter-spacing: 0.45px;
+        }
+        &:hover {
+          .BannerButtonText {
+            color: rgba(1, 204, 255, 0.8);
+          }
+          svg {
+            path {
+              stroke: rgba(1, 204, 255, 0.8);
+            }
+          }
+        }
+
+        &:active {
+          .BannerButtonText {
+            color: #01ccff;
+          }
+          svg {
+            path {
+              stroke: #01ccff;
+            }
+          }
         }
       }
     }
@@ -295,6 +356,27 @@
           font-weight: 500;
           line-height: 26px; /* 144.444% */
           letter-spacing: 0.45px;
+        }
+        &:hover {
+          .BannerButtonText {
+            color: rgba(1, 204, 255, 0.8);
+          }
+          svg {
+            path {
+              stroke: rgba(1, 204, 255, 0.8);
+            }
+          }
+        }
+
+        &:active {
+          .BannerButtonText {
+            color: #01ccff;
+          }
+          svg {
+            path {
+              stroke: #01ccff;
+            }
+          }
         }
       }
     }
@@ -375,6 +457,27 @@
           font-weight: 500;
           line-height: 26px; /* 144.444% */
           letter-spacing: 0.45px;
+        }
+        &:hover {
+          .BannerButtonText {
+            color: rgba(1, 204, 255, 0.8);
+          }
+          svg {
+            path {
+              stroke: rgba(1, 204, 255, 0.8);
+            }
+          }
+        }
+
+        &:active {
+          .BannerButtonText {
+            color: #01ccff;
+          }
+          svg {
+            path {
+              stroke: #01ccff;
+            }
+          }
         }
       }
     }

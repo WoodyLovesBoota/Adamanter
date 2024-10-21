@@ -76,6 +76,7 @@ const FarewellView = ({ data }: { data: any }) => {
 
   return (
     <div className={cx("Wrapper")}>
+      <div className={cx("HeaderWrapper")}></div>
       <header className={cx("Header")}>
         <Image src={"/static/images/farewell_bg.png"} alt={"farewell"} width={2560} height={1160} />
         <div className={cx("FarewellContainer")}>
@@ -189,7 +190,7 @@ const FarewellView = ({ data }: { data: any }) => {
                   {...rest}
                   type={COMMON_FORM_TYPE.TEXTAREA}
                   placeholder={
-                    "이 공간은 온라인 방명록입니다. 자유롭게 댓글을 남겨주세요. (한영변환은 Tap키를 눌러주세요.)"
+                    "이 공간은 온라인 방명록입니다. 자유롭게 댓글을 남겨주세요. (한영변환은 CapsLock키를 눌러주세요.)"
                   }
                   onClick={() => {
                     form.handleSubmit(onValid)();

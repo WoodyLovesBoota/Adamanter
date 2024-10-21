@@ -7,28 +7,29 @@ import { useEffect, useState } from "react";
 import { usePopup } from "@/components/hooks/common/usePopup";
 import Image from "next/image";
 import { Icon } from "@/lib/common/components/Icon/Icon";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/constants/route.constant";
 
 const cx = cn.bind(styles);
 
 const HomeView = () => {
-  const { centerPopup } = usePopup();
+  const { centerPopup, toastPopup } = usePopup();
+
+  const router = useRouter();
 
   const [random, setRandom] = useState<number>(getRandomSample());
+  const [scrollY, setScrollY] = useState<number>(0);
+  const [swiper, setSwiper] = useState(0);
+  const [swiperRef, setSwiperRef] = useState<any>();
 
   const handleButtonClick = () => {
-    centerPopup({
-      title: "Title",
-      subtitle: "this is subtitle",
-      description: "desctiption is very long .....",
-      positiveText: "Yes",
-      negativeText: "No",
+    toastPopup({
+      stringKey: "ComingSoon",
+      title: "Sorry, this page is currently under preparation.",
+      iconName: "ComingSoon",
       dimmed: true,
-      onPositiveClick: () => {
-        console.log("positiveClick");
-      },
-      onNegativeClick: () => {
-        console.log("negativeClick");
-      },
     });
   };
 
@@ -46,12 +47,12 @@ const HomeView = () => {
           height={1440}
           style={{ width: "100%", height: "100vh", position: "absolute" }}
         />
+
         <div className={cx("Players")}>
-          <Image
-            src={"/static/images/Show.png"}
-            alt={"players_bg"}
-            width={1042}
-            height={140}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
             style={{
               width: "40%",
               height: "auto",
@@ -59,24 +60,41 @@ const HomeView = () => {
               top: "160px",
               zIndex: 17,
             }}
-          />
-          <Image
-            src={"/static/images/Players.png"}
-            alt={"players"}
-            width={2560}
-            height={1150}
+          >
+            <Image src={"/static/images/Show.png"} alt={"players_bg"} width={1042} height={140} />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 140 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
             style={{
               width: "100vw",
               height: "auto",
               marginTop: "auto",
               zIndex: 18,
             }}
-          />
-          <Image
-            src={"/static/images/Prove.png"}
-            alt={"players_bg"}
-            width={1064}
-            height={240}
+          >
+            <Image src={"/static/images/Players.png"} alt={"players"} width={2560} height={1155} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.8 }}
+            style={{
+              width: "100vw",
+              height: "auto",
+              position: "absolute",
+              bottom: "-120px",
+            }}
+          >
+            <Image src={"/static/images/Masking.png"} alt={"players"} width={2560} height={1320} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2, delay: 0.3 }}
             style={{
               width: "41.5%",
               height: "auto",
@@ -84,12 +102,55 @@ const HomeView = () => {
               bottom: "80px",
               zIndex: 21,
             }}
-          />
+          >
+            <Image src={"/static/images/Prove.png"} alt={"players_bg"} width={1064} height={240} />
+          </motion.div>
           <div className={cx("HeaderGradient")} />
-          <div className={cx("HeaderButton")}>
-            <Icon name={"ScrollDown"} />
+          <motion.div className={cx("HeaderButton")}>
+            <div className={cx("IconWrapper")}>
+              <motion.div
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: -48 }}
+                transition={{
+                  opacity: {
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "linear",
+                  },
+                  y: {
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  },
+                }}
+              >
+                <Icon name={"ScrollDown"} />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: -36 }}
+                transition={{
+                  opacity: {
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "linear",
+                  },
+                  y: {
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  },
+                }}
+              >
+                <Icon name={"ScrollDown"} />
+              </motion.div>
+            </div>
             <p className={cx("HeaderButtonText")}>SCROLL DOWN</p>
-          </div>
+          </motion.div>
         </div>
       </header>
       <main className={cx("Main")}>
@@ -110,12 +171,8 @@ const HomeView = () => {
           <div className={cx("UpcomingTitle")}>
             <div className={cx("UpcomingTitleText")}>
               <p className={cx("UpcomingTitleMain")}>UPCOMING MATCHES</p>
-              <p className={cx("UpcomingTitleSub")}>Follow up our live games </p>
+              <p className={cx("UpcomingTitleSub")}>승리의 순간을 놓치지 마세요.</p>
             </div>
-            <button className={cx("UpcomingButton")}>
-              <p className={cx("UpcomingButtonText")}>VIEW ALL</p>
-              <Icon name={"ArrowUpright"} size={20} color={"#01CCFF"} />
-            </button>
           </div>
           <div className={cx("UpcomingContent")}>
             <div className={cx("UpcomingContentItem")}>
@@ -179,9 +236,6 @@ const HomeView = () => {
                   Sunday, November 3, 2024 at 9:00 PM
                 </p>
               </div>
-              <div className={cx("UpcomingContentItemButton")}>
-                <Icon name={"SlideArrow"} size={48} />
-              </div>
             </div>
           </div>
         </section>
@@ -189,53 +243,120 @@ const HomeView = () => {
           <div className={cx("PopularTitle")}>
             <div className={cx("PopularTitleText")}>
               <p className={cx("PopularTitleMain")}>POPULAR ITEMS</p>
-              <p className={cx("PopularTitleSub")}>Feel like a pro</p>
+              <p className={cx("PopularTitleSub")}>팬들의 선택을 받은 인기 굿즈를 만나보세요.</p>
             </div>
-            <button className={cx("PopularButton")}>
+            <button className={cx("PopularButton")} onClick={() => router.push(ROUTES.SHOP)}>
               <p className={cx("PopularButtonText")}>VISIT SHOP</p>
               <Icon name={"ArrowUpright"} size={20} color={"#01CCFF"} />
             </button>
           </div>
           <div className={cx("PopularContentWrapper")}>
-            <div className={cx("PopularContentItem")}>
-              <div className={cx("ImageWrapper")}>
-                <Image src={"/static/images/popular1.png"} alt={"item"} width={330} height={330} />
+            {swiper === 1 && (
+              <div
+                className={cx("UpcomingContentItemButton", "left")}
+                onClick={() => swiperRef?.slidePrev()}
+              >
+                <Icon name={"SlideArrow"} size={48} />
               </div>
-              <div className={cx("PopularContentItemTitle")}>
-                <p className={cx("PopularContentItemTitleMain")}>2024 ADAMANTER 포토카드</p>
-                <p className={cx("PopularContentItemTitleSub")}>30,000원</p>
-              </div>
-            </div>
-            <div className={cx("PopularContentItem")}>
-              <div className={cx("ImageWrapper")}>
-                <Image src={"/static/images/popular2.png"} alt={"item"} width={330} height={330} />
-              </div>
-              <div className={cx("PopularContentItemTitle")}>
-                <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 키캡</p>
-                <p className={cx("PopularContentItemTitleSub")}>5,000원</p>
-              </div>
-            </div>
-            <div className={cx("PopularContentItem")}>
-              <div className={cx("ImageWrapper")}>
-                <Image src={"/static/images/popular3.png"} alt={"item"} width={330} height={330} />
-              </div>
-              <div className={cx("PopularContentItemTitle")}>
-                <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 텀블러</p>
-                <p className={cx("PopularContentItemTitleSub")}>24,000원</p>
-              </div>
-            </div>
-            <div className={cx("PopularContentItem")}>
-              <div className={cx("ImageWrapper")}>
-                <Image src={"/static/images/popular4.png"} alt={"item"} width={330} height={330} />
-                <div className={cx("UpcomingContentItemButton")}>
-                  <Icon name={"SlideArrow"} size={48} />
+            )}
+            <Swiper
+              onSwiper={setSwiperRef}
+              onActiveIndexChange={(e) => setSwiper(e.activeIndex)}
+              initialSlide={0}
+              spaceBetween={40}
+              slidesPerView={4}
+              loop={false}
+              className={cx("CardList")}
+            >
+              <SwiperSlide>
+                <div className={cx("PopularContentItem")}>
+                  <div className={cx("ImageWrapper")}>
+                    <Image
+                      src={"/static/images/popular1.png"}
+                      alt={"item"}
+                      width={330}
+                      height={330}
+                    />
+                  </div>
+                  <div className={cx("PopularContentItemTitle")}>
+                    <p className={cx("PopularContentItemTitleMain")}>2024 ADAMANTER 포토카드</p>
+                    <p className={cx("PopularContentItemTitleSub")}>30,000원</p>
+                  </div>
                 </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={cx("PopularContentItem")}>
+                  <div className={cx("ImageWrapper")}>
+                    <Image
+                      src={"/static/images/popular2.png"}
+                      alt={"item"}
+                      width={330}
+                      height={330}
+                    />
+                  </div>
+                  <div className={cx("PopularContentItemTitle")}>
+                    <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 키캡</p>
+                    <p className={cx("PopularContentItemTitleSub")}>5,000원</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={cx("PopularContentItem")}>
+                  <div className={cx("ImageWrapper")}>
+                    <Image
+                      src={"/static/images/popular3.png"}
+                      alt={"item"}
+                      width={330}
+                      height={330}
+                    />
+                  </div>
+                  <div className={cx("PopularContentItemTitle")}>
+                    <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 텀블러</p>
+                    <p className={cx("PopularContentItemTitleSub")}>24,000원</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={cx("PopularContentItem")}>
+                  <div className={cx("ImageWrapper")}>
+                    <Image
+                      src={"/static/images/popular4.png"}
+                      alt={"item"}
+                      width={330}
+                      height={330}
+                    />
+                  </div>
+                  <div className={cx("PopularContentItemTitle")}>
+                    <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 키링</p>
+                    <p className={cx("PopularContentItemTitleSub")}>12,000원</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={cx("PopularContentItem")}>
+                  <div className={cx("ImageWrapper")}>
+                    <Image
+                      src={"/static/images/jersey_shop.png"}
+                      alt={"item"}
+                      width={330}
+                      height={330}
+                    />
+                  </div>
+                  <div className={cx("PopularContentItemTitle")}>
+                    <p className={cx("PopularContentItemTitleMain")}>2024 ADAMANTER 져지</p>
+                    <p className={cx("PopularContentItemTitleSub")}>80,000원</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+            {swiper === 0 && (
+              <div
+                className={cx("UpcomingContentItemButton")}
+                onClick={() => swiperRef?.slideNext()}
+              >
+                <Icon name={"SlideArrow"} size={48} />
               </div>
-              <div className={cx("PopularContentItemTitle")}>
-                <p className={cx("PopularContentItemTitleMain")}>ADAMANTER 키링</p>
-                <p className={cx("PopularContentItemTitleSub")}>12,000원</p>
-              </div>
-            </div>
+            )}
           </div>
         </section>
         <section className={cx("Banner")}>
@@ -245,7 +366,12 @@ const HomeView = () => {
               <p className={cx("BannerSubTitle")}>프로처럼 입고, 승리의 자신감을 느껴보세요.</p>
             </div>
             <Image src={"/static/images/jersey.png"} alt={"banner"} width={714} height={758} />
-            <button className={cx("BannerButton")}>
+            <button
+              className={cx("BannerButton")}
+              onClick={() => {
+                router.push(ROUTES.SHOP);
+              }}
+            >
               <p className={cx("BannerButtonText")}>BUY NOW</p>
               <Icon name={"ArrowUpright"} size={20} color={"#0A0A0A"} />
             </button>
@@ -261,7 +387,7 @@ const HomeView = () => {
                 THE LIVE STREAM
                 <div className={cx("RedDot")} />
               </p>
-              <button className={cx("StreamButton")}>
+              <button className={cx("StreamButton")} onClick={() => handleButtonClick()}>
                 <p className={cx("StreamButtonText")}>GO TO LIVE STREAMING</p>
                 <Icon name={"ArrowUpright"} size={20} color={"#0A0A0A"} />
               </button>
@@ -272,7 +398,7 @@ const HomeView = () => {
               <Image src={"/static/images/live2.png"} alt={"stream"} width={700} height={438} />
               <div className={cx("Content")}>
                 <p className={cx("StreamContentTitle")}>CAREER IN ADAMANTER</p>
-                <button className={cx("StreamButton")}>
+                <button className={cx("StreamButton")} onClick={() => handleButtonClick()}>
                   <p className={cx("StreamButtonText")}>APPLY NOW</p>
                   <Icon name={"ArrowUpright"} size={20} color={"#0A0A0A"} />
                 </button>
@@ -283,7 +409,7 @@ const HomeView = () => {
                 <Image src={"/static/images/live3.png"} alt={"stream"} width={700} height={438} />
                 <div className={cx("Content")}>
                   <p className={cx("StreamContentTitle")}>JOIN THE MEMBERSHIP</p>
-                  <button className={cx("StreamButton")}>
+                  <button className={cx("StreamButton")} onClick={() => handleButtonClick()}>
                     <p className={cx("StreamButtonText")}>SIGN UP</p>
                     <Icon name={"ArrowUpright"} size={20} color={"#0A0A0A"} />
                   </button>
@@ -301,7 +427,7 @@ const HomeView = () => {
                 ADAMANTER의 승리와 감동의 순간을 최신 영상에서 바로 만나보세요.
               </p>
             </div>
-            <button className={cx("VideoButton")}>
+            <button className={cx("VideoButton")} onClick={() => handleButtonClick()}>
               <Icon name={"YoutubeLogo"} size={24} />
               <p className={cx("VideoButtonText")}>YOUTUBE</p>
               <Icon name={"ArrowUpright"} size={20} color={"#f33"} />
@@ -395,6 +521,10 @@ const HomeView = () => {
               <p className={cx("TeamTitleMain")}>OUR TEAMS</p>
               <p className={cx("TeamTitleSub")}>끊임없이 도전하는 ADAMANTER의 팀을 소개합니다.</p>
             </div>
+            <button className={cx("PopularButton")} onClick={() => router.push(ROUTES.TEAM)}>
+              <p className={cx("PopularButtonText")}>VISIT TEAM</p>
+              <Icon name={"ArrowUpright"} size={20} color={"#01CCFF"} />
+            </button>
           </div>
           <div className={cx("TeamContentWrapper")}>
             <Image src={"/static/images/game1.png"} alt={"team"} width={345} height={550} />

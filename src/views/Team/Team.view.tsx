@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./Team.view.module.scss";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePopup } from "@/components/hooks/common/usePopup";
 
 const cx = classNames.bind(styles);
 
@@ -14,9 +15,22 @@ const TeamView = () => {
   const [isCard4Hover, setIsCard4Hover] = useState(false);
   const [isCard5Hover, setIsCard5Hover] = useState(false);
 
+  const [currentDateHover, setCurrentDateHover] = useState<number>();
+
+  const { toastPopup } = usePopup();
+
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const handleButtonClick = () => {
+    toastPopup({
+      stringKey: "ComingSoon",
+      title: "Sorry, this page is currently under preparation.",
+      iconName: "ComingSoon",
+      dimmed: true,
+    });
+  };
 
   const TEAM = [
     {
@@ -85,15 +99,57 @@ const TeamView = () => {
         <div className={cx("ToggleWrapper")}>
           <div className={cx("GameToggle")}>
             <button className={cx("GameToggleButton", "current")}>LEAGUE OF LEGENDS</button>
-            <button className={cx("GameToggleButton")}>VALORANT</button>
-            <button className={cx("GameToggleButton")}>BATTLEGROUNDS</button>
-            <button className={cx("GameToggleButton")}>DOTA 2</button>
+            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+              VALORANT
+            </button>
+            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+              BATTLEGROUNDS
+            </button>
+            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+              DOTA 2
+            </button>
           </div>
           <div className={cx("DateToggle")}>
             <button className={cx("DateToggleButton", "current")}>2024</button>
-            <button className={cx("DateToggleButton")}>2023</button>
-            <button className={cx("DateToggleButton")}>2022</button>
-            <button className={cx("DateToggleButton")}>2021</button>
+            <button
+              onMouseEnter={() => setCurrentDateHover(1)}
+              onMouseLeave={() => setCurrentDateHover(undefined)}
+              onClick={() => handleButtonClick()}
+              className={cx("DateToggleButton")}
+            >
+              2023
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: currentDateHover === 1 ? 1 : 0, transformOrigin: "left" }}
+                className={cx("DateUnderline")}
+              />
+            </button>
+            <button
+              onMouseEnter={() => setCurrentDateHover(2)}
+              onMouseLeave={() => setCurrentDateHover(undefined)}
+              onClick={() => handleButtonClick()}
+              className={cx("DateToggleButton")}
+            >
+              2022
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: currentDateHover === 2 ? 1 : 0, transformOrigin: "left" }}
+                className={cx("DateUnderline")}
+              />
+            </button>
+            <button
+              onMouseEnter={() => setCurrentDateHover(3)}
+              onMouseLeave={() => setCurrentDateHover(undefined)}
+              onClick={() => handleButtonClick()}
+              className={cx("DateToggleButton")}
+            >
+              2021
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: currentDateHover === 3 ? 1 : 0, transformOrigin: "left" }}
+                className={cx("DateUnderline")}
+              />
+            </button>
           </div>
         </div>
       </section>
@@ -123,7 +179,13 @@ const TeamView = () => {
                         alt={"team"}
                         width={248}
                         height={48}
-                        style={{ position: "absolute", right: 40, top: 40 }}
+                        style={{
+                          position: "absolute",
+                          right: 40,
+                          top: 40,
+                          height: "48px",
+                          width: "auto",
+                        }}
                       />
                       <button className={cx("TeamListContentItemButton", "white")}>
                         {item.position}
@@ -162,7 +224,13 @@ const TeamView = () => {
                         alt={"team"}
                         width={248}
                         height={48}
-                        style={{ position: "absolute", right: 40, top: 40 }}
+                        style={{
+                          position: "absolute",
+                          right: 40,
+                          top: 40,
+                          height: "48px",
+                          width: "auto",
+                        }}
                       />
                       <button className={cx("TeamListContentItemButton")}>{item.position}</button>
                       <Image
@@ -201,7 +269,13 @@ const TeamView = () => {
                         alt={"team"}
                         width={248}
                         height={48}
-                        style={{ position: "absolute", right: 40, top: 40 }}
+                        style={{
+                          position: "absolute",
+                          right: 40,
+                          top: 40,
+                          height: "48px",
+                          width: "auto",
+                        }}
                       />
                       <button className={cx("TeamListContentItemButton", "white")}>
                         {item.position}
@@ -240,7 +314,13 @@ const TeamView = () => {
                         alt={"team"}
                         width={248}
                         height={48}
-                        style={{ position: "absolute", right: 40, top: 40 }}
+                        style={{
+                          position: "absolute",
+                          right: 40,
+                          top: 40,
+                          height: "48px",
+                          width: "auto",
+                        }}
                       />
                       <button className={cx("TeamListContentItemButton")}>{item.position}</button>
                       <Image
