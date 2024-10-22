@@ -40,7 +40,7 @@ const TeamView = () => {
       country: "1998-08-24",
       frontImage: "/static/images/dexter.png",
       backImage: "/static/images/dexter_color.png",
-      frontFace: "/static/images/top.png",
+      frontFace: "/static/images/Top.png",
       state: isCard1Hover,
       setState: setIsCard1Hover,
     },
@@ -51,7 +51,7 @@ const TeamView = () => {
       country: "2000-12-26",
       frontImage: "/static/images/wrex.png",
       backImage: "/static/images/wrex_color.png",
-      frontFace: "/static/images/jungle.png",
+      frontFace: "/static/images/Jungle.png",
       state: isCard2Hover,
       setState: setIsCard2Hover,
     },
@@ -62,7 +62,7 @@ const TeamView = () => {
       country: "2001-10-18",
       frontImage: "/static/images/vortex.png",
       backImage: "/static/images/vortex_color.png",
-      frontFace: "/static/images/mid.png",
+      frontFace: "/static/images/Mid.png",
       state: isCard3Hover,
       setState: setIsCard3Hover,
     },
@@ -76,7 +76,7 @@ const TeamView = () => {
       country: "2003-11-04",
       frontImage: "/static/images/trion.png",
       backImage: "/static/images/trion_color.png",
-      frontFace: "/static/images/bottom.png",
+      frontFace: "/static/images/Bottom.png",
       state: isCard4Hover,
       setState: setIsCard4Hover,
     },
@@ -87,7 +87,7 @@ const TeamView = () => {
       country: "2002-05-11",
       frontImage: "/static/images/avenn.png",
       backImage: "/static/images/avenn_color.png",
-      frontFace: "/static/images/supporter.png",
+      frontFace: "/static/images/Supporter.png",
       state: isCard5Hover,
       setState: setIsCard5Hover,
     },
@@ -98,14 +98,25 @@ const TeamView = () => {
       <section className={cx("Container")}>
         <div className={cx("ToggleWrapper")}>
           <div className={cx("GameToggle")}>
-            <button className={cx("GameToggleButton", "current")}>LEAGUE OF LEGENDS</button>
-            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+            <button className={cx("GameToggleButton", "current")}>
+              LEAGUE OF LEGENDS
+            </button>
+            <button
+              onClick={() => handleButtonClick()}
+              className={cx("GameToggleButton")}
+            >
               VALORANT
             </button>
-            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+            <button
+              onClick={() => handleButtonClick()}
+              className={cx("GameToggleButton")}
+            >
               BATTLEGROUNDS
             </button>
-            <button onClick={() => handleButtonClick()} className={cx("GameToggleButton")}>
+            <button
+              onClick={() => handleButtonClick()}
+              className={cx("GameToggleButton")}
+            >
               DOTA 2
             </button>
           </div>
@@ -120,7 +131,10 @@ const TeamView = () => {
               2023
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: currentDateHover === 1 ? 1 : 0, transformOrigin: "left" }}
+                animate={{
+                  scaleX: currentDateHover === 1 ? 1 : 0,
+                  transformOrigin: "left",
+                }}
                 className={cx("DateUnderline")}
               />
             </button>
@@ -133,7 +147,10 @@ const TeamView = () => {
               2022
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: currentDateHover === 2 ? 1 : 0, transformOrigin: "left" }}
+                animate={{
+                  scaleX: currentDateHover === 2 ? 1 : 0,
+                  transformOrigin: "left",
+                }}
                 className={cx("DateUnderline")}
               />
             </button>
@@ -146,7 +163,10 @@ const TeamView = () => {
               2021
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: currentDateHover === 3 ? 1 : 0, transformOrigin: "left" }}
+                animate={{
+                  scaleX: currentDateHover === 3 ? 1 : 0,
+                  transformOrigin: "left",
+                }}
                 className={cx("DateUnderline")}
               />
             </button>
@@ -187,7 +207,9 @@ const TeamView = () => {
                           width: "auto",
                         }}
                       />
-                      <button className={cx("TeamListContentItemButton", "white")}>
+                      <button
+                        className={cx("TeamListContentItemButton", "white")}
+                      >
                         {item.position}
                       </button>
                       <Image
@@ -205,9 +227,15 @@ const TeamView = () => {
                         }}
                       />
                       <div className={cx("TeamListContentItemInfo")}>
-                        <p className={cx("TeamListContentItemInfoName")}>{item.name}</p>
-                        <p className={cx("TeamListContentItemInfoPosition")}>{item.enName}</p>
-                        <p className={cx("TeamListContentItemInfoCountry")}>{item.country}</p>
+                        <p className={cx("TeamListContentItemInfoName")}>
+                          {item.name}
+                        </p>
+                        <p className={cx("TeamListContentItemInfoPosition")}>
+                          {item.enName}
+                        </p>
+                        <p className={cx("TeamListContentItemInfoCountry")}>
+                          {item.country}
+                        </p>
                       </div>
                     </motion.div>
                   ) : (
@@ -217,7 +245,9 @@ const TeamView = () => {
                       exit={{ opacity: 0.1 }}
                       transition={{ duration: 0.2 }}
                       key={"notHover"}
-                      className={cx("TeamListContentItemImage", { hover: item.state })}
+                      className={cx("TeamListContentItemImage", {
+                        hover: item.state,
+                      })}
                     >
                       <Image
                         src={item.backImage}
@@ -232,7 +262,9 @@ const TeamView = () => {
                           width: "auto",
                         }}
                       />
-                      <button className={cx("TeamListContentItemButton")}>{item.position}</button>
+                      <button className={cx("TeamListContentItemButton")}>
+                        {item.position}
+                      </button>
                       <Image
                         src={item.frontFace}
                         alt={"team"}
@@ -277,7 +309,9 @@ const TeamView = () => {
                           width: "auto",
                         }}
                       />
-                      <button className={cx("TeamListContentItemButton", "white")}>
+                      <button
+                        className={cx("TeamListContentItemButton", "white")}
+                      >
                         {item.position}
                       </button>
                       <Image
@@ -295,9 +329,15 @@ const TeamView = () => {
                         }}
                       />
                       <div className={cx("TeamListContentItemInfo")}>
-                        <p className={cx("TeamListContentItemInfoName")}>{item.name}</p>
-                        <p className={cx("TeamListContentItemInfoPosition")}>{item.enName}</p>
-                        <p className={cx("TeamListContentItemInfoCountry")}>{item.country}</p>
+                        <p className={cx("TeamListContentItemInfoName")}>
+                          {item.name}
+                        </p>
+                        <p className={cx("TeamListContentItemInfoPosition")}>
+                          {item.enName}
+                        </p>
+                        <p className={cx("TeamListContentItemInfoCountry")}>
+                          {item.country}
+                        </p>
                       </div>
                     </motion.div>
                   ) : (
@@ -307,7 +347,9 @@ const TeamView = () => {
                       exit={{ opacity: 0.1 }}
                       transition={{ duration: 0.2 }}
                       key={"notHover"}
-                      className={cx("TeamListContentItemImage", { hover: item.state })}
+                      className={cx("TeamListContentItemImage", {
+                        hover: item.state,
+                      })}
                     >
                       <Image
                         src={item.backImage}
@@ -322,7 +364,9 @@ const TeamView = () => {
                           width: "auto",
                         }}
                       />
-                      <button className={cx("TeamListContentItemButton")}>{item.position}</button>
+                      <button className={cx("TeamListContentItemButton")}>
+                        {item.position}
+                      </button>
                       <Image
                         src={item.frontFace}
                         alt={"team"}
