@@ -34,7 +34,7 @@ const GuideView = () => {
           <div className={cx("MainContent")}>
             <div className={cx("MainContentItem")}>
               <Image
-                src={"/static/images/Vertical_Color.png"}
+                src={"/static/images/Vertical_color.png"}
                 alt={"logo"}
                 width={333}
                 height={357}
