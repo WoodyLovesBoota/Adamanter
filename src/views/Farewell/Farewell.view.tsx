@@ -95,7 +95,7 @@ const FarewellView = () => {
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             className={cx("FarewellImage")}
           >
             <Image
@@ -109,7 +109,7 @@ const FarewellView = () => {
           <motion.div
             initial={{ opacity: 0, y: -140 }}
             animate={{ opacity: 1, y: -90 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
             className={cx("KarnesImage")}
           >
             <Image
@@ -123,7 +123,7 @@ const FarewellView = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.5, delay: 1.3 }}
             className={cx("PlayerImage")}
           >
             <Image
@@ -138,7 +138,7 @@ const FarewellView = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 1.5 }}
+              transition={{ duration: 0.3, delay: 1.8 }}
               className={cx("Box")}
             >
               <p className={cx("BoxTitle")}>
@@ -162,7 +162,7 @@ const FarewellView = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 1.8 }}
+              transition={{ duration: 0.3, delay: 2.1 }}
               className={cx("Box")}
             >
               <div className={cx("BoxInput")}>
